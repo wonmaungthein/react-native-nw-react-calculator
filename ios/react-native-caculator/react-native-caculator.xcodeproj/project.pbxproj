@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		89902788213C31970015C925 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89902787213C31970015C925 /* AppDelegate.swift */; };
+		8990278A213C31970015C925 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89902789213C31970015C925 /* ViewController.swift */; };
+		8990278D213C31970015C925 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8990278B213C31970015C925 /* Main.storyboard */; };
+		89902790213C31970015C925 /* react_native_caculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8990278E213C31970015C925 /* react_native_caculator.xcdatamodeld */; };
+		89902792213C31980015C925 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89902791213C31980015C925 /* Assets.xcassets */; };
+		89902795213C31980015C925 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89902793213C31980015C925 /* LaunchScreen.storyboard */; };
+		899027A0213C31980015C925 /* react_native_caculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990279F213C31980015C925 /* react_native_caculatorTests.swift */; };
+		899027AB213C31980015C925 /* react_native_caculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899027AA213C31980015C925 /* react_native_caculatorUITests.swift */; };
+		8990BEFD213D6E3D000C9C07 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 899027AC213C31980015C925 /* Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8990279C213C31980015C925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8990277C213C31970015C925 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89902783213C31970015C925;
+			remoteInfo = "react-native-caculator";
+		};
+		899027A7213C31980015C925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8990277C213C31970015C925 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89902783213C31970015C925;
+			remoteInfo = "react-native-caculator";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		89902784213C31970015C925 /* react-native-caculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "react-native-caculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89902787213C31970015C925 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		89902789213C31970015C925 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8990278C213C31970015C925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8990278F213C31970015C925 /* react_native_caculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = react_native_caculator.xcdatamodel; sourceTree = "<group>"; };
+		89902791213C31980015C925 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89902794213C31980015C925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89902796213C31980015C925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8990279B213C31980015C925 /* react-native-caculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "react-native-caculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8990279F213C31980015C925 /* react_native_caculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = react_native_caculatorTests.swift; sourceTree = "<group>"; };
+		899027A1213C31980015C925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		899027A6213C31980015C925 /* react-native-caculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "react-native-caculatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		899027AA213C31980015C925 /* react_native_caculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = react_native_caculatorUITests.swift; sourceTree = "<group>"; };
+		899027AC213C31980015C925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89902781213C31970015C925 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89902798213C31980015C925 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		899027A3213C31980015C925 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8990277B213C31970015C925 = {
+			isa = PBXGroup;
+			children = (
+				89902786213C31970015C925 /* react-native-caculator */,
+				8990279E213C31980015C925 /* react-native-caculatorTests */,
+				899027A9213C31980015C925 /* react-native-caculatorUITests */,
+				89902785213C31970015C925 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		89902785213C31970015C925 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89902784213C31970015C925 /* react-native-caculator.app */,
+				8990279B213C31980015C925 /* react-native-caculatorTests.xctest */,
+				899027A6213C31980015C925 /* react-native-caculatorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89902786213C31970015C925 /* react-native-caculator */ = {
+			isa = PBXGroup;
+			children = (
+				89902787213C31970015C925 /* AppDelegate.swift */,
+				89902789213C31970015C925 /* ViewController.swift */,
+				8990278B213C31970015C925 /* Main.storyboard */,
+				89902791213C31980015C925 /* Assets.xcassets */,
+				89902793213C31980015C925 /* LaunchScreen.storyboard */,
+				89902796213C31980015C925 /* Info.plist */,
+				8990278E213C31970015C925 /* react_native_caculator.xcdatamodeld */,
+			);
+			path = "react-native-caculator";
+			sourceTree = "<group>";
+		};
+		8990279E213C31980015C925 /* react-native-caculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				8990279F213C31980015C925 /* react_native_caculatorTests.swift */,
+				899027A1213C31980015C925 /* Info.plist */,
+			);
+			path = "react-native-caculatorTests";
+			sourceTree = "<group>";
+		};
+		899027A9213C31980015C925 /* react-native-caculatorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				899027AA213C31980015C925 /* react_native_caculatorUITests.swift */,
+				899027AC213C31980015C925 /* Info.plist */,
+			);
+			path = "react-native-caculatorUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		89902783213C31970015C925 /* react-native-caculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 899027AF213C31980015C925 /* Build configuration list for PBXNativeTarget "react-native-caculator" */;
+			buildPhases = (
+				89902780213C31970015C925 /* Sources */,
+				89902781213C31970015C925 /* Frameworks */,
+				89902782213C31970015C925 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "react-native-caculator";
+			productName = "react-native-caculator";
+			productReference = 89902784213C31970015C925 /* react-native-caculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8990279A213C31980015C925 /* react-native-caculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 899027B2213C31980015C925 /* Build configuration list for PBXNativeTarget "react-native-caculatorTests" */;
+			buildPhases = (
+				89902797213C31980015C925 /* Sources */,
+				89902798213C31980015C925 /* Frameworks */,
+				89902799213C31980015C925 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8990279D213C31980015C925 /* PBXTargetDependency */,
+			);
+			name = "react-native-caculatorTests";
+			productName = "react-native-caculatorTests";
+			productReference = 8990279B213C31980015C925 /* react-native-caculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		899027A5213C31980015C925 /* react-native-caculatorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 899027B5213C31980015C925 /* Build configuration list for PBXNativeTarget "react-native-caculatorUITests" */;
+			buildPhases = (
+				899027A2213C31980015C925 /* Sources */,
+				899027A3213C31980015C925 /* Frameworks */,
+				899027A4213C31980015C925 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				899027A8213C31980015C925 /* PBXTargetDependency */,
+			);
+			name = "react-native-caculatorUITests";
+			productName = "react-native-caculatorUITests";
+			productReference = 899027A6213C31980015C925 /* react-native-caculatorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8990277C213C31970015C925 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Won Maung Thein";
+				TargetAttributes = {
+					89902783213C31970015C925 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					8990279A213C31980015C925 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 89902783213C31970015C925;
+					};
+					899027A5213C31980015C925 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 89902783213C31970015C925;
+					};
+				};
+			};
+			buildConfigurationList = 8990277F213C31970015C925 /* Build configuration list for PBXProject "react-native-caculator" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8990277B213C31970015C925;
+			productRefGroup = 89902785213C31970015C925 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89902783213C31970015C925 /* react-native-caculator */,
+				8990279A213C31980015C925 /* react-native-caculatorTests */,
+				899027A5213C31980015C925 /* react-native-caculatorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89902782213C31970015C925 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8990BEFD213D6E3D000C9C07 /* Info.plist in Resources */,
+				89902795213C31980015C925 /* LaunchScreen.storyboard in Resources */,
+				89902792213C31980015C925 /* Assets.xcassets in Resources */,
+				8990278D213C31970015C925 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89902799213C31980015C925 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		899027A4213C31980015C925 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89902780213C31970015C925 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8990278A213C31970015C925 /* ViewController.swift in Sources */,
+				89902790213C31970015C925 /* react_native_caculator.xcdatamodeld in Sources */,
+				89902788213C31970015C925 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89902797213C31980015C925 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				899027A0213C31980015C925 /* react_native_caculatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		899027A2213C31980015C925 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				899027AB213C31980015C925 /* react_native_caculatorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8990279D213C31980015C925 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89902783213C31970015C925 /* react-native-caculator */;
+			targetProxy = 8990279C213C31980015C925 /* PBXContainerItemProxy */;
+		};
+		899027A8213C31980015C925 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89902783213C31970015C925 /* react-native-caculator */;
+			targetProxy = 899027A7213C31980015C925 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8990278B213C31970015C925 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8990278C213C31970015C925 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		89902793213C31980015C925 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89902794213C31980015C925 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		899027AD213C31980015C925 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		899027AE213C31980015C925 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		899027B0213C31980015C925 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "react-native-caculator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "cyf.react-native-caculator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		899027B1213C31980015C925 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "react-native-caculator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "cyf.react-native-caculator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		899027B3213C31980015C925 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "react-native-caculatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "cyf.react-native-caculatorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/react-native-caculator.app/react-native-caculator";
+			};
+			name = Debug;
+		};
+		899027B4213C31980015C925 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "react-native-caculatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "cyf.react-native-caculatorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/react-native-caculator.app/react-native-caculator";
+			};
+			name = Release;
+		};
+		899027B6213C31980015C925 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "react-native-caculatorUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "cyf.react-native-caculatorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "react-native-caculator";
+			};
+			name = Debug;
+		};
+		899027B7213C31980015C925 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "react-native-caculatorUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "cyf.react-native-caculatorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "react-native-caculator";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8990277F213C31970015C925 /* Build configuration list for PBXProject "react-native-caculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				899027AD213C31980015C925 /* Debug */,
+				899027AE213C31980015C925 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		899027AF213C31980015C925 /* Build configuration list for PBXNativeTarget "react-native-caculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				899027B0213C31980015C925 /* Debug */,
+				899027B1213C31980015C925 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		899027B2213C31980015C925 /* Build configuration list for PBXNativeTarget "react-native-caculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				899027B3213C31980015C925 /* Debug */,
+				899027B4213C31980015C925 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		899027B5213C31980015C925 /* Build configuration list for PBXNativeTarget "react-native-caculatorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				899027B6213C31980015C925 /* Debug */,
+				899027B7213C31980015C925 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8990278E213C31970015C925 /* react_native_caculator.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8990278F213C31970015C925 /* react_native_caculator.xcdatamodel */,
+			);
+			currentVersion = 8990278F213C31970015C925 /* react_native_caculator.xcdatamodel */;
+			path = react_native_caculator.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8990277C213C31970015C925 /* Project object */;
+}

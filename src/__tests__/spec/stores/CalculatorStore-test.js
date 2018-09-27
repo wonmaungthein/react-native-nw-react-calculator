@@ -4,7 +4,7 @@ jest.dontMock('../../../common/stores/CalculatorStore');
 jest.dontMock('object-assign');
 jest.dontMock('keymirror');
 
-describe('CalculatorStore', function() {
+describe('CalculatorStore', function () {
 
   var CalculatorConstants = require('../../../common/constants/CalculatorConstants');
   var AppDispatcher = require('../../../common/dispatcher/AppDispatcher');
@@ -12,7 +12,7 @@ describe('CalculatorStore', function() {
   var callback = AppDispatcher.register.mock.calls[0][0];
 
   // mock actions
-  var actionKeyTyped = function(keyType, keyValue) {
+  var actionKeyTyped = function (keyType, keyValue) {
     return {
       type: CalculatorConstants.KEY_TYPED,
       keyType: keyType,
@@ -20,32 +20,32 @@ describe('CalculatorStore', function() {
     };
   };
 
-  var actionFormulaTyped = function(formula) {
+  var actionFormulaTyped = function (formula) {
     return {
       type: CalculatorConstants.FORMULA_TYPED,
       formula: formula
     };
   };
 
-  var resetTyping = function() {
-    for(var i = 0; i < 20; i++) {
+  var resetTyping = function () {
+    for (var i = 0; i < 20; i++) {
       callback(actionKeyTyped('action', 'back'));
     }
   };
 
-  beforeEach(function() {
+  beforeEach(function () {
   });
 
-  it('registers a callback with the dispatcher', function() {
+  it('registers a callback with the dispatcher', function () {
     expect(AppDispatcher.register.mock.calls.length).toBe(1);
   });
 
-  it('initializes with 0 on screen and no formulae', function() {
+  it('initializes with 0 on screen and no formulae', function () {
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([]);
   });
 
-  it('shows numbers on screen as we type (123)', function() {
+  it('shows numbers on screen as we type (123)', function () {
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '1'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('1');
@@ -57,7 +57,7 @@ describe('CalculatorStore', function() {
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
   });
 
-  it('handles 0 accumalation (0000, -0000, 1000, 0.0001)', function() {
+  it('handles 0 accumalation (0000, -0000, 1000, 0.0001)', function () {
     // typing a lot of 0 0 0 0
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '0'));
@@ -109,7 +109,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles typing . (.000, 1.234, -0.123, ...12)', function() {
+  it('handles typing . (.000, 1.234, -0.123, ...12)', function () {
     // typing . first
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '.'));
@@ -177,7 +177,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles typing back as we type (1234, -1234)', function() {
+  it('handles typing back as we type (1234, -1234)', function () {
     // back after nothing
     callback(actionKeyTyped('action', 'back'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
@@ -229,7 +229,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles typing . after back (.00, -0.00)', function() {
+  it('handles typing . after back (.00, -0.00)', function () {
     // right after a .
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '.'));
@@ -269,7 +269,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles basic add calculations (1+2=3, 1+-2=-1)', function() {
+  it('handles basic add calculations (1+2=3, 1+-2=-1)', function () {
     // positive numbers
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '1'));
@@ -301,7 +301,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles basic substract calculations (1-2=-1, 1--2=-3)', function() {
+  it('handles basic substract calculations (1-2=-1, 1--2=-3)', function () {
     // positive numbers
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '1'));
@@ -333,7 +333,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles basic multiply calculations (1x2=2, 1x-2=-2)', function() {
+  it('handles basic multiply calculations (1x2=2, 1x-2=-2)', function () {
     // positive numbers
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '1'));
@@ -365,7 +365,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles basic divide calculations (4÷2=2, 4÷-2=-2)', function() {
+  it('handles basic divide calculations (4÷2=2, 4÷-2=-2)', function () {
     // positive numbers
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '4'));
@@ -397,7 +397,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles decimal add calculations (0.1+0.2=0.3, +1=1.3)', function() {
+  it('handles decimal add calculations (0.1+0.2=0.3, +1=1.3)', function () {
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '.'));
     callback(actionKeyTyped('number', '1'));
@@ -424,7 +424,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles decimal substract calculations (0.2-0.1=0.1, -1=-0.9)', function() {
+  it('handles decimal substract calculations (0.2-0.1=0.1, -1=-0.9)', function () {
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '.'));
     callback(actionKeyTyped('number', '2'));
@@ -451,7 +451,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles decimal multiply calculations (0.1x0.2=0.02, x2=0.04)', function() {
+  it('handles decimal multiply calculations (0.1x0.2=0.02, x2=0.04)', function () {
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '.'));
     callback(actionKeyTyped('number', '1'));
@@ -478,7 +478,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles decimal divide calculations (0.2÷4=0.05, ÷2=0.025)', function() {
+  it('handles decimal divide calculations (0.2÷4=0.05, ÷2=0.025)', function () {
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '.'));
     callback(actionKeyTyped('number', '2'));
@@ -504,7 +504,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles multiple distinct calculations (1+2=3, 4+5=9)', function() {
+  it('handles multiple distinct calculations (1+2=3, 4+5=9)', function () {
     // first calculation 1 + 2 = 3
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '1'));
@@ -516,7 +516,7 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('3');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' }]);
 
     // second and new calculation 4 + 5 = 9
     callback(actionKeyTyped('number', '4'));
@@ -528,20 +528,21 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('9');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '4 + 5', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '4 + 5', operator: 'add' }]);
 
     // first back to delete previous result
     callback(actionKeyTyped('action', 'back'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '4 + 5', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '4 + 5', operator: 'add' }]);
 
     // second back to delele most recent formulae
     callback(actionKeyTyped('action', 'back'));
     expect(CalculatorStore.getDisplayFormulae()).toEqual([{
-      id: undefined, literal: '1 + 2', operator: 'add'}]);
+      id: undefined, literal: '1 + 2', operator: 'add'
+    }]);
 
     // third back to delete oldest formulae
     callback(actionKeyTyped('action', 'back'));
@@ -550,7 +551,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles multiple complete linked calculations, with equals (1+2=3, +3=6, +4=10, +5=15)', function() {
+  it('handles multiple complete linked calculations, with equals (1+2=3, +3=6, +4=10, +5=15)', function () {
     // first calculation 1 + 2 = 3
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '1'));
@@ -562,7 +563,7 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('3');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' }]);
 
     // second calculation 3 + 3 = 6
     callback(actionKeyTyped('operator', 'add'));
@@ -572,8 +573,8 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('6');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '3 + 3', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '3 + 3', operator: 'add' }]);
 
     // third calculation 6 + 4 = 10
     callback(actionKeyTyped('operator', 'add'));
@@ -583,9 +584,9 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('10');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '3 + 3', operator: 'add'},
-      { id: undefined, literal: '6 + 4', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '3 + 3', operator: 'add' },
+      { id: undefined, literal: '6 + 4', operator: 'add' }]);
 
     // fourth calculation 10 + 5 = 15
     callback(actionKeyTyped('operator', 'add'));
@@ -595,33 +596,33 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('15');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '3 + 3', operator: 'add'},
-      { id: undefined, literal: '6 + 4', operator: 'add'},
-      { id: undefined, literal: '10 + 5', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '3 + 3', operator: 'add' },
+      { id: undefined, literal: '6 + 4', operator: 'add' },
+      { id: undefined, literal: '10 + 5', operator: 'add' }]);
 
     // back to delete screen and previous results
     callback(actionKeyTyped('action', 'back'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '3 + 3', operator: 'add'},
-      { id: undefined, literal: '6 + 4', operator: 'add'},
-      { id: undefined, literal: '10 + 5', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '3 + 3', operator: 'add' },
+      { id: undefined, literal: '6 + 4', operator: 'add' },
+      { id: undefined, literal: '10 + 5', operator: 'add' }]);
 
     // back to delele most recent formulae
     callback(actionKeyTyped('action', 'back'));
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '3 + 3', operator: 'add'},
-      { id: undefined, literal: '6 + 4', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '3 + 3', operator: 'add' },
+      { id: undefined, literal: '6 + 4', operator: 'add' }]);
     callback(actionKeyTyped('action', 'back'));
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '3 + 3', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '3 + 3', operator: 'add' }]);
     callback(actionKeyTyped('action', 'back'));
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' }]);
 
     // last back to delete oldest formulae
     callback(actionKeyTyped('action', 'back'));
@@ -630,7 +631,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles multiple short linked calculations, without equal but direct operator (1+2+, 3+, 4+, 5=15)', function() {
+  it('handles multiple short linked calculations, without equal but direct operator (1+2+, 3+, 4+, 5=15)', function () {
     // first calculation 1 + 2 = 3
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '1'));
@@ -642,7 +643,7 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('operator', 'add'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('3');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' }]);
 
     // second calculation + 3 = 6
     callback(actionKeyTyped('number', '3'));
@@ -650,8 +651,8 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('operator', 'add'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('6');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '3 + 3', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '3 + 3', operator: 'add' }]);
 
     // third calculation + 4 = 10
     callback(actionKeyTyped('number', '4'));
@@ -659,9 +660,9 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('operator', 'add'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('10');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '3 + 3', operator: 'add'},
-      { id: undefined, literal: '6 + 4', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '3 + 3', operator: 'add' },
+      { id: undefined, literal: '6 + 4', operator: 'add' }]);
 
     // fourth calculation + 5 = 15
     callback(actionKeyTyped('number', '5'));
@@ -669,33 +670,33 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('15');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '3 + 3', operator: 'add'},
-      { id: undefined, literal: '6 + 4', operator: 'add'},
-      { id: undefined, literal: '10 + 5', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '3 + 3', operator: 'add' },
+      { id: undefined, literal: '6 + 4', operator: 'add' },
+      { id: undefined, literal: '10 + 5', operator: 'add' }]);
 
     // back to delete screen and previous results
     callback(actionKeyTyped('action', 'back'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '3 + 3', operator: 'add'},
-      { id: undefined, literal: '6 + 4', operator: 'add'},
-      { id: undefined, literal: '10 + 5', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '3 + 3', operator: 'add' },
+      { id: undefined, literal: '6 + 4', operator: 'add' },
+      { id: undefined, literal: '10 + 5', operator: 'add' }]);
 
     // back to delele most recent formulae
     callback(actionKeyTyped('action', 'back'));
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '3 + 3', operator: 'add'},
-      { id: undefined, literal: '6 + 4', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '3 + 3', operator: 'add' },
+      { id: undefined, literal: '6 + 4', operator: 'add' }]);
     callback(actionKeyTyped('action', 'back'));
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '3 + 3', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '3 + 3', operator: 'add' }]);
     callback(actionKeyTyped('action', 'back'));
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' }]);
 
     // last back to delete oldest formulae
     callback(actionKeyTyped('action', 'back'));
@@ -704,7 +705,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles repeated calculations (1+2=3, =5, =7)', function() {
+  it('handles repeated calculations (1+2=3, =5, =7)', function () {
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '1'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('1');
@@ -734,7 +735,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles typing errors (before, in and after calculation)', function() {
+  it('handles typing errors (before, in and after calculation)', function () {
     // multiple operators at the begining
     callback(actionKeyTyped('operator', 'add'));
     callback(actionKeyTyped('operator', 'add'));
@@ -805,7 +806,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles error in distinct calculations (1+2=3, 4÷0=Error, 3+4=7)', function() {
+  it('handles error in distinct calculations (1+2=3, 4÷0=Error, 3+4=7)', function () {
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '1'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('1');
@@ -845,7 +846,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles error in linked calculations (1+2=3, ÷0=Error==++, 4=, +5=9)', function() {
+  it('handles error in linked calculations (1+2=3, ÷0=Error==++, 4=, +5=9)', function () {
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '1'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('1');
@@ -900,7 +901,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles sign switching with 0 (0, -0, 0, -0, 0)', function() {
+  it('handles sign switching with 0 (0, -0, 0, -0, 0)', function () {
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '+-'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('-0');
@@ -914,7 +915,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles sign switching after a number (1, -1, 1, -1, 1)', function() {
+  it('handles sign switching after a number (1, -1, 1, -1, 1)', function () {
     callback(actionKeyTyped('number', '1'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('1');
     callback(actionKeyTyped('number', '+-'));
@@ -929,7 +930,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles sign switching after a decimal number (1.2, -1.2, 1.2, -1.2, 1.2)', function() {
+  it('handles sign switching after a decimal number (1.2, -1.2, 1.2, -1.2, 1.2)', function () {
     callback(actionKeyTyped('number', '1'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('1');
     callback(actionKeyTyped('number', '.'));
@@ -948,7 +949,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles sign switching after calculation (1+2=3, -3+4=7)', function() {
+  it('handles sign switching after calculation (1+2=3, -3+4=7)', function () {
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '1'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('1');
@@ -976,7 +977,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles typing a number after sign switching (0, -0, -1, 1)', function() {
+  it('handles typing a number after sign switching (0, -0, -1, 1)', function () {
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '+-'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('-0');
@@ -988,7 +989,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles reusing formula more than one time (1+2=3, 4+5=9, "1+2", "1+2")', function() {
+  it('handles reusing formula more than one time (1+2=3, 4+5=9, "1+2", "1+2")', function () {
     // first calculation 1 + 2 = 3
     callback(actionKeyTyped('number', '1'));
     callback(actionKeyTyped('operator', 'add'));
@@ -996,7 +997,7 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('3');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' }]);
 
     // second and new calculation 4 + 5 = 9
     callback(actionKeyTyped('number', '4'));
@@ -1005,31 +1006,31 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('9');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '4 + 5', operator: 'add'}
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '4 + 5', operator: 'add' }
     ]);
 
     // type on the first formula one time
-    callback(actionFormulaTyped({ id: undefined, literal: '1 + 2', operator: 'add'}));
+    callback(actionFormulaTyped({ id: undefined, literal: '1 + 2', operator: 'add' }));
     expect(CalculatorStore.getDisplayScreen()).toEqual('3');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '4 + 5', operator: 'add'},
-      { id: undefined, literal: '1 + 2', operator: 'add'}
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '4 + 5', operator: 'add' },
+      { id: undefined, literal: '1 + 2', operator: 'add' }
     ]);
 
     // type on the first formula a second time
-    callback(actionFormulaTyped({ id: undefined, literal: '1 + 2', operator: 'add'}));
+    callback(actionFormulaTyped({ id: undefined, literal: '1 + 2', operator: 'add' }));
     expect(CalculatorStore.getDisplayScreen()).toEqual('3');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '4 + 5', operator: 'add'},
-      { id: undefined, literal: '1 + 2', operator: 'add'}
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '4 + 5', operator: 'add' },
+      { id: undefined, literal: '1 + 2', operator: 'add' }
     ]);
     resetTyping();
   });
 
-  it('handles distinct calculation after reusing formula (1+2=3, 4+5=9, "1+2", 6+7=13)', function() {
+  it('handles distinct calculation after reusing formula (1+2=3, 4+5=9, "1+2", 6+7=13)', function () {
     // first calculation 1 + 2 = 3
     callback(actionKeyTyped('number', '1'));
     callback(actionKeyTyped('operator', 'add'));
@@ -1037,7 +1038,7 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('3');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' }]);
 
     // second and new calculation 4 + 5 = 9
     callback(actionKeyTyped('number', '4'));
@@ -1046,17 +1047,17 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('9');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '4 + 5', operator: 'add'}
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '4 + 5', operator: 'add' }
     ]);
 
     // type on the first formula one time
-    callback(actionFormulaTyped({ id: undefined, literal: '1 + 2', operator: 'add'}));
+    callback(actionFormulaTyped({ id: undefined, literal: '1 + 2', operator: 'add' }));
     expect(CalculatorStore.getDisplayScreen()).toEqual('3');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '4 + 5', operator: 'add'},
-      { id: undefined, literal: '1 + 2', operator: 'add'}
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '4 + 5', operator: 'add' },
+      { id: undefined, literal: '1 + 2', operator: 'add' }
     ]);
 
     // third and new calculation 6 + 7 = 13
@@ -1066,15 +1067,15 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('13');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '4 + 5', operator: 'add'},
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '6 + 7', operator: 'add'}
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '4 + 5', operator: 'add' },
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '6 + 7', operator: 'add' }
     ]);
     resetTyping();
   });
 
-  it('handles linked calculation after reusing formula (1+2=3, 4+5=9, "1+2", +6=9, +-7=2)', function() {
+  it('handles linked calculation after reusing formula (1+2=3, 4+5=9, "1+2", +6=9, +-7=2)', function () {
     // first calculation 1 + 2 = 3
     callback(actionKeyTyped('number', '1'));
     callback(actionKeyTyped('operator', 'add'));
@@ -1082,7 +1083,7 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('3');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'}]);
+      { id: undefined, literal: '1 + 2', operator: 'add' }]);
 
     // second and new calculation 4 + 5 = 9
     callback(actionKeyTyped('number', '4'));
@@ -1091,17 +1092,17 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('9');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '4 + 5', operator: 'add'}
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '4 + 5', operator: 'add' }
     ]);
 
     // type on the first formula one time
-    callback(actionFormulaTyped({ id: undefined, literal: '1 + 2', operator: 'add'}));
+    callback(actionFormulaTyped({ id: undefined, literal: '1 + 2', operator: 'add' }));
     expect(CalculatorStore.getDisplayScreen()).toEqual('3');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '4 + 5', operator: 'add'},
-      { id: undefined, literal: '1 + 2', operator: 'add'}
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '4 + 5', operator: 'add' },
+      { id: undefined, literal: '1 + 2', operator: 'add' }
     ]);
 
     // third calculation + 6 = 9
@@ -1110,10 +1111,10 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('9');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '4 + 5', operator: 'add'},
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '3 + 6', operator: 'add'}
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '4 + 5', operator: 'add' },
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '3 + 6', operator: 'add' }
     ]);
 
     // fourth calculation + -7 = 2
@@ -1123,16 +1124,16 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('2');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '4 + 5', operator: 'add'},
-      { id: undefined, literal: '1 + 2', operator: 'add'},
-      { id: undefined, literal: '3 + 6', operator: 'add'},
-      { id: undefined, literal: '9 + -7', operator: 'add'}
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '4 + 5', operator: 'add' },
+      { id: undefined, literal: '1 + 2', operator: 'add' },
+      { id: undefined, literal: '3 + 6', operator: 'add' },
+      { id: undefined, literal: '9 + -7', operator: 'add' }
     ]);
     resetTyping();
   });
 
-  it('handles big numbers as we type (1 000 000 000 000)', function() {
+  it('handles big numbers as we type (1 000 000 000 000)', function () {
     // first calculation 1 000 000 000 000
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '1'));
@@ -1158,7 +1159,7 @@ describe('CalculatorStore', function() {
     resetTyping();
   });
 
-  it('handles big numbers in calculation (1 000 000 000 000*2=2.00000e+12)', function() {
+  it('handles big numbers in calculation (1 000 000 000 000*2=2.00000e+12)', function () {
     // first calculation 1 000 000 000 000 * 2 = 2.00000e+12
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '1'));
@@ -1184,11 +1185,11 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('2.00000e+12');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1.00000e+12 x 2', operator: 'multiply'}]);
+      { id: undefined, literal: '1.00000e+12 x 2', operator: 'multiply' }]);
     resetTyping();
   });
 
-  it('handles big numbers and decimal in calculation (1 000 000 000 000.1+7=1.42857e+11, +7777777=18367.34878)', function() {
+  it('handles big numbers and decimal in calculation (1 000 000 000 000.1+7=1.42857e+11, +7777777=18367.34878)', function () {
     // first calculation 1 000 000 000 000.1 + 7 = 1.42857e+11
     expect(CalculatorStore.getDisplayScreen()).toEqual('0');
     callback(actionKeyTyped('number', '1'));
@@ -1216,7 +1217,7 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('1.42857e+11');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1.00000e+12 ÷ 7', operator: 'divide'}]);
+      { id: undefined, literal: '1.00000e+12 ÷ 7', operator: 'divide' }]);
 
     callback(actionKeyTyped('operator', 'divide'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('1.42857e+11');
@@ -1231,7 +1232,7 @@ describe('CalculatorStore', function() {
     callback(actionKeyTyped('action', 'equal'));
     expect(CalculatorStore.getDisplayScreen()).toEqual('18367.34878');
     expect(CalculatorStore.getDisplayFormulae()).toEqual([
-      { id: undefined, literal: '1.42857e+11 ÷ 7777777', operator: 'divide'}]);
+      { id: undefined, literal: '1.42857e+11 ÷ 7777777', operator: 'divide' }]);
     resetTyping();
   });
 });
